@@ -9,7 +9,7 @@ Backend realizado con Nodejs, los datos se guardan en MONGODB y las puebas se re
 
 ## Developed with
 <p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png" width="180" title="hover text">&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png" width="180" title="hover text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png" width="250" height="130" title="hover text">
         &nbsp&nbsp&nbsp&nbsp
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="100" title="hover text">
