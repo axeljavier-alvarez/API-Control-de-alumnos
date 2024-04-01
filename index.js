@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const app = require('./app');
-const registroAdmin = require('./src/controllers/usuarios.controller');
+const registrarMaestro = require('./src/controllers/usuarios.controller');
 
 // BASE DE DATOS 
 mongoose.Promise = global.Promise;                                                                
@@ -12,6 +12,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/ControlAlumnos', { useNewUrlParser: 
         console.log('El servidor corre sin problemas')
     })
 
-    registroAdmin.registrarAdmin();
+    registrarMaestro.RegistrarMaestroDefecto();
 
 }).catch(error => console.log(error));

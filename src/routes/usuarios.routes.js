@@ -7,9 +7,6 @@ var api = express.Router();
 //OBTENER TOKENS
 api.post('/login', usuariosController.Login);
 
-// registrar usuarios
-api.post('/registrarUsuarios', usuariosController.registrarUsuarios);
-
 
 
 module.exports = api
