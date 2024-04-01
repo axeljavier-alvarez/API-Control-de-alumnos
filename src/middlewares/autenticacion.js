@@ -4,7 +4,7 @@ const secret = 'clave_secreta_IN6BM1';
 
 exports.Auth = function(req, res, next) {
     if ( !req.headers.authorization ) {
-        return res.status(404)
+        return res.fstatus(404)
             .send({ mensaje: 'La peticion, no posee la cabecera de Autenticacion' });
     }
 
