@@ -1,5 +1,5 @@
 ### Features
-Backend realizado con Nodejs, los datos se guardan en MONGODB y las puebas se realizan en Postman con solicitudes GET, POST y PUT:
+API sobre el control de alumnos de un colegio, backend realizado con Nodejs, los datos se guardan en MONGODB y las puebas se realizan en Postman con solicitudes GET, POST y PUT:
 - Administracion de almnos.
 - Se usan 2 roles ROL_ALUMNO y ROL_MAESTRO.
 - Se crea un usuario por defecto con el nombre: MAESTRO y la contraseña: 123456.
