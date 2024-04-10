@@ -104,7 +104,7 @@ function RegistrarAlumno(req, res){
 // editar usuario dependiendo de quien se logea 
 function EditarUsuarios(req, res) {
 
-    var idUser = req.params.idUsuario;
+    /* var idUser = req.params.idUsuario;
     var parametros = req.body;
 
     if(parametros.nombre&&parametros.apellido){
@@ -118,7 +118,21 @@ function EditarUsuarios(req, res) {
             })
        }else{
         return res.status(500).send({ mensaje: 'No puede modificar los campos necesarios para el logueo,solamente nombre y apellido'});
-    }
+    } */
+    var idUser = req.params.idUsuario;
+    var parametros = req.body;
+  
+    
+    Usuarios.findByIdAndUpdate(idUser, parametros,{ new: true },(err, editarControl) => {
+  
+        if (err) return res.status(500).send({ mensaje: "Error en la peticion" });
+  
+        if (!editarControl) return res.status(403).send({ mensaje: "Error al editar el control" });
+  
+        return res.status(200).send({ Usuario: editarControl });
+  
+      }
+    );  
 }
 
 // eliminar usuarios
