@@ -76,36 +76,24 @@ function Login(req, res) {
 function RegistrarAlumno(req, res){
     var parametros = req.body;
     var usuarioModel = new Usuarios();
-
-
     if(parametros.nombre && parametros.apellido && parametros.email && parametros.password){
-
-
         usuarioModel.nombre = parametros.nombre;
         usuarioModel.apellido = parametros.apellido;
         usuarioModel.email = parametros.email;
         usuarioModel.rol = 'ROL_ALUMNO';
         usuarioModel.imagen = null;
-
-
         Usuarios.find({ email: parametros.email}, (err, alumnoEncontrado)=>{
-
             if(alumnoEncontrado.length == 0){
                 bcrypt.hash(parametros.password, null, null, (err, passwordEncriptada)=>{
                     usuarioModel.password = passwordEncriptada;
-
                     usuarioModel.save((err, usuarioGuardado)=>{
                         if(err) return res.status(500).send({ mensaje: 'Error en la peticion'});
-
                         if(!usuarioGuardado) return res.status(500).send({ mensaje: 'Error al agregar el alumno'});
-
                         return res.status(200).send({ usuario: usuarioGuardado });
-
                     });
                 });
             } else {
                 return res.status(500).send({ mensaje: "El correo ya se encuetra registrado" });
-
             }
         })
     } else {
