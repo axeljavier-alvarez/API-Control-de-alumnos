@@ -29,6 +29,21 @@ function AgregarCursos(req, res) {
     });
 }
 
+function EditarCursos(req, res) {
+    var idCur = req.params.idCurso;
+    var parametros = req.body;
+
+    if ( req.user.rol == "ROL_ALUMNO" ) return res.status(500)
+    .send({ mensaje: 'Solo el profesor puede editar los cursos'});
+
+    Cursos.findByIdAndUpdate(idCur, parametros, { new: true } ,(err, cursosActualizado) => {
+        if (err) return res.status(500).send({ mensaje: 'Error en la peticion'});
+        if(!cursosActualizado) return res.status(404).send( { mensaje: 'Error al Editar el Cursos'});
+
+        return res.status(200).send({ curso: cursosActualizado});
+    });
+}
+
 // TODOS LOS CURSOS LOS PUEDE OBTENER CUALQUIER ROL
 function ObtenerTodosLosCursos(req, res) {
 
@@ -58,30 +73,9 @@ function ObtenerCursosProfesor(req, res) {
 }
 
 
-function AgregarAsignacion(req, res) {
-
-    var parametros = req.body;
-    var cursoModel = new Asignaciones();
-
-    // SOLO EL PROFESOR TIENE ACCESO
-    if (req.user.rol !== "ROL_MAESTRO") {
-        return res.status(500).send({ mensaje: "Solo el maestro tiene permisos" });
-    }
-
-    if(parametros.idCurso){
-        /*cursoModel.idCurso = parametros.idCurso;
-        cursoModel.idAlumno = req.user.sub;
-
-        Asignaciones.find({idAlumno: req.user.sub}, (err, cantidadCursos)=>{
-            if(asignacionEncontrada.length == 0){
-
-            }
-        }); */
 
 
-    }
 
-}
 
 
 
@@ -91,5 +85,5 @@ module.exports = {
     AgregarCursos,
     ObtenerTodosLosCursos,
     ObtenerCursosProfesor,
-    AgregarAsignacion
+    EditarCursos
 }
